@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;700&display=swap');
 
-
-
 *{
     margin: 0;
     padding: 0;
@@ -37,15 +35,58 @@
     z-index:-1;
 }
 
-h1{
-    position:absolute;
-    top: 23rem;
-    left: 5rem;
+/* Existing h1 styles */
+h1 {
+    position: absolute;
+    top: 12rem;
+    left: 15%;
     font-size: 4rem;
+    max-width: 80%;
     letter-spacing: 4px;
     color: white;
-    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    border-radius: 20px; 
+
+    text-shadow: none; /* Optional: Remove text-shadow */
 }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.3rem;
+        top: 4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: azure;
+        max-width: 90%;
+  
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.2rem;
+        top: 5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: azure;
+        max-width: 95%;
+
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1rem;
+        top: 0rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: azure;
+        max-width: 100%;
+
+    }
+}
+
 
 section{
     background-color: rgba(45,45,45);
@@ -70,16 +111,17 @@ section{
     background-position: center;
     height:500px;
 }
-.desc{
-    position:absolute;
-    background-color: white;
+.desc {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.527);
     padding: 0.5rem 2.5rem;
-    top:40%;
-    left:60%;
-    transform:translateX(-50%) translateX(-50%);
+    top: 40%;
+    left: 60%;
+    transform: translate(-50%, -50%);
     color: black;
     font-size: 3.5rem;
     font-weight: 600;
+    border-radius: 20px; /* Adjust this value as needed */
 }
 .bg1{
     background-image: url(images/webchat.webp);
@@ -173,22 +215,6 @@ section{
     background-color: #e60000;
 }
 
-/* Responsive Design */
-
-@media (max-width: 768px) {
-    .contact-form-container {
-        padding: 2rem 1.5rem;
-    }
-
-    .contact-form-container h2 {
-        font-size: 2rem;
-    }
-
-    .submit-button {
-        width: 100%;
-    }
-}
-
 /* Navigation Bar Styles */
 
 .navbar {
@@ -274,7 +300,7 @@ section{
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Hamburger Menu Styles (Optional for Mobile) */
+/* Hamburger Menu Styles */
 
 .hamburger {
     display: none;
@@ -290,9 +316,60 @@ section{
     transition: all 0.3s ease;
 }
 
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
 /* Responsive Styles */
 
 @media (max-width: 768px) {
+    /* Adjust h1 */
+
+    /* Adjust section headings and text */
+    .secHeading{
+        font-size:3rem;
+        padding: 0 2rem;
+    }
+    .text{
+        font-size: 1rem;
+        padding: 0 2rem;
+    }
+
+    /* Adjust background images and descriptions */
+    .bg{
+        height:300px;
+        background-attachment: scroll;
+    }
+    .desc{
+        font-size: 2rem;
+        padding: 0.5rem 1.5rem;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+    }
+
+    /* Adjust contact form */
+    .contact-form-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .contact-form-container h2 {
+        font-size: 2rem;
+    }
+
+    .submit-button {
+        width: 100%;
+    }
+
+    /* Adjust navigation menu */
     .nav-menu {
         position: absolute;
         top: 60px;
@@ -321,6 +398,11 @@ section{
         position: static;
         box-shadow: none;
         background-color: rgba(60, 60, 60, 0.95);
+        display: none;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
     }
 
     .dropdown-link {
@@ -330,17 +412,77 @@ section{
     .hamburger {
         display: flex;
     }
+
+    .wrapper {
+        height: auto;
+    }
+
+    .container {
+        height: auto;
+        flex-direction: column;
+    }
+
+    .background {
+        transform: none;
+        position: static;
+        height: auto;
+    }
+
+    .foreground {
+        transform: none;
+        position: static;
+        height: auto;
+    }
 }
 
-
-.hamburger.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+#form-messages {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
+/* Existing styles */
+
+/* Footer Styles */
+
+.site-footer {
+    background-color: rgba(45, 45, 45, 0.95);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 1rem;
 }
 
-.hamburger.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+.site-footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
+
+.site-footer p {
+    margin: 0.5rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 1.5rem 0;
+        font-size: 0.9rem;
+    }
+
+    .site-footer .footer-content {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 1rem 0;
+        font-size: 0.8rem;
+    }
+
+    .site-footer .footer-content {
+        padding: 0 0.5rem;
+    }
+}
+
