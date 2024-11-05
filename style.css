@@ -486,3 +486,26 @@ section{
     }
 }
 
+.custom-icon-list {
+    list-style-type: none;
+    padding-left: 3rem;
+}
+
+.custom-icon-list li {
+    position: relative;
+    padding-left: 40px; /* Adjust padding to make space for the icon */
+}
+
+.custom-icon-list li::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 2rem; /* Set desired icon width */
+    height: 2rem; /* Set desired icon height */
+    background-image: url('rocket.png'); /* Replace with your icon path */
+    background-size: contain; /* Adjust as needed: contain, cover, or a percentage */
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translateY(-50%); /* Vertically center the icon */
+}
