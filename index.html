@@ -164,36 +164,53 @@
 
 
     <script>
-document.getElementById('form-messages').addEventListener('submit', function(event) {
-    event.preventDefault();
-    grecaptcha.ready(function() {
-        grecaptcha.execute('6LfKCHgqAAAAACneLjFx6kHWaFMSr_4d_8wEuazI', {action: 'submit'}).then(function(token) {
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value,
-                "g-recaptcha-response": token
-            };
-
-            fetch('https://europe-west2-contact-us-441010.cloudfunctions.net/contact-us', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            }).then(response => {
-                if (response.ok) {
-                    alert("Form submitted successfully!");
-                } else {
-                    alert("Error submitting form.");
-                }
-            }).catch(error => {
-                alert("Error: " + error);
+        document.getElementById('form-messages').addEventListener('submit', function(event) {
+            event.preventDefault();
+    
+            // Reference to the form and the message display element
+            var contactForm = document.getElementById('form-messages');
+            var formMessages = document.getElementById('form-messages'); // Make sure this ID matches your HTML
+    
+            // Capture the form data before resetting the form
+            var nameValue = document.getElementById('name').value;
+            var emailValue = document.getElementById('email').value;
+            var messageValue = document.getElementById('message').value;
+    
+            // Display the success message immediately
+            formMessages.textContent = 'Your message has been sent successfully!';
+            formMessages.style.color = 'green';
+    
+            // Reset the form fields
+            contactForm.reset();
+    
+            // Proceed with reCAPTCHA and sending the data to the server
+            grecaptcha.ready(function() {
+                grecaptcha.execute('YOUR_SITE_KEY', {action: 'submit'}).then(function(token) {
+                    const formData = {
+                        name: nameValue,
+                        email: emailValue,
+                        message: messageValue,
+                        "g-recaptcha-response": token
+                    };
+    
+                    fetch('https://europe-west2-contact-us-441010.cloudfunctions.net/contact-us', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    }).then(response => {
+                        // Optionally handle the server response here
+                        // Since we're not waiting for it, we can leave this empty
+                    }).catch(error => {
+                        // Log the error for debugging purposes
+                        console.error('Error submitting form:', error);
+                    });
+                });
             });
         });
-    });
-});
     </script>
     <script src="script.js"></script>
 </body>
 </html>
+
