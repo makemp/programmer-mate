@@ -78,7 +78,7 @@ h1 {
 @media (max-width: 480px) {
     h1 {
         font-size: 1.2rem;
-        top: 0.5rem;
+        top: 1rem;
         left: 50%;
         transform: translateX(-50%);
         color: azure;
@@ -119,7 +119,7 @@ section{
     left: 60%;
     transform: translate(-50%, -50%);
     color: black;
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     font-weight: 600;
     border-radius: 20px; /* Adjust this value as needed */
 }
