@@ -77,8 +77,8 @@ h1 {
 
 @media (max-width: 480px) {
     h1 {
-        font-size: 1.5rem;
-        top: 0rem;
+        font-size: 1.2rem;
+        top: 0.5rem;
         left: 50%;
         transform: translateX(-50%);
         color: azure;
@@ -109,7 +109,7 @@ section{
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    height:500px;
+    height:600px;
 }
 .desc {
     position: absolute;
